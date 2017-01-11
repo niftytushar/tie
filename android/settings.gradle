@@ -1,3 +1,5 @@
 rootProject.name = 'tie'
 
 include ':app'
+include ':VoiceModule'
+project(':VoiceModule').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-android-voice')

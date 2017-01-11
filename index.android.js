@@ -9,23 +9,32 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight,
 } from 'react-native';
+import SpeechAndroid from 'react-native-android-voice';
 
 export default class tie extends Component {
+  componentDidMount() {
+    // this.textSpeech();
+  }
+
+  async textSpeech() {
+    console.log('Start speech text');
+    try {
+      const spokenText = await SpeechAndroid.startSpeech("Speak yo", SpeechAndroid.ENGLISH);
+      console.log(spokenText);
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <TouchableHighlight onPress={this.textSpeech}>
+          <Text>Click</Text>
+        </TouchableHighlight>
       </View>
     );
   }
