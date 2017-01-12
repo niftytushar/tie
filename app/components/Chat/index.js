@@ -13,7 +13,7 @@ import ChatBot from './ChatBot';
 import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
 import Tts from 'react-native-tts';
-import mic from './../../../assets/img/ic_keyboard_voice_primary_48px.png';
+import mic from './../../../assets/img/ic_keyboard_voice_primary.png';
 
 export default class Chat extends Component {
   constructor() {
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   toolbar: {
-    backgroundColor: '#77bacd',
+    backgroundColor: '#3d81a0',
     height: 56,
     elevation: 2,
   },

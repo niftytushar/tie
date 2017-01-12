@@ -46,8 +46,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 60,
-    backgroundColor: '#77bacd',
-    marginRight: 15,
+    backgroundColor: '#e9ecf1',
   },
   textBot: {
     color: '#4d5d74',
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
   },
   chatImage: {
     position: 'relative',
-    left: -10,
-    bottom: 0,
+    left: 5,
+    bottom: -1,
   }
 });

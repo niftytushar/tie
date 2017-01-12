@@ -28,6 +28,7 @@ export default class ChatUser extends Component {
           <Image source={chat} style={styles.chatImage} />
         </View>
         <View style={styles.avatar}>
+          <Text style={styles.avatarText}>JD</Text>
         </View>
       </View>
     );
@@ -38,14 +39,20 @@ const styles = StyleSheet.create({
   bubbleUser: {
     borderRadius: 5,
     borderBottomRightRadius: 0,
-    backgroundColor: '#77bacd',
+    backgroundColor: '#3d81a0',
     padding: 10,
   },
    avatar: {
     height: 50,
     width: 50,
     borderRadius: 60,
-    backgroundColor: '#77bacd',
+    backgroundColor: '#e9ecf1',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarText: {
+    color: '#4d5d74',
+    fontSize: 14,
   },
   textUser: {
     color: '#ffffff',
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
   },
   chatImage: {
     position: 'relative',
-    right: 5,
-    bottom: -1,
+    right: 7,
+    bottom: 0,
   }
 });
