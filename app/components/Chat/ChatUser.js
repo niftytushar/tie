@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
    avatar: {
-    height: 50,
-    width: 50,
+    height: 48,
+    width: 48,
     borderRadius: 60,
     backgroundColor: '#e9ecf1',
     alignItems: 'center',
