@@ -31,6 +31,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     messages: state.messages,
+    settings: state.settings,
   };
 }
 

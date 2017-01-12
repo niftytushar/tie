@@ -57,11 +57,11 @@ const styles = StyleSheet.create({
   textUser: {
     color: '#ffffff',
     lineHeight: 20,
-    fontSize: 14,
+    fontSize: 16,
   },
   chatImage: {
     position: 'relative',
-    right: 7,
+    right: 9,
     bottom: 0,
   }
 });

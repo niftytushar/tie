@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   textBot: {
     color: '#4d5d74',
     lineHeight: 20,
-    fontSize: 14,
+    fontSize: 16,
   },
   chatImage: {
     position: 'relative',

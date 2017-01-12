@@ -14,8 +14,7 @@ import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
 import Tts from 'react-native-tts';
 import mic from './../../../assets/img/ic_keyboard_voice_primary.png';
-import logo from './../../../assets/img/icon-white.png';
-import more from './../../../assets/img/ic_more_vert_white_24dp.png';
+// import more from './../../../assets/img/ic_more_vert_white_24dp.png';
 import volumeOff from './../../../assets/img/ic_volume_off_white_24dp.png';
 import volumeOn from './../../../assets/img/ic_volume_up_white_24dp.png';
 
@@ -25,15 +24,24 @@ export default class Chat extends Component {
 
     this.state = { messageText: '' };
 
-    // Tts.speak('Hello, my name is Tie. How can I help you?');
-
     this.textSpeech = this.textSpeech.bind(this);
     this.onMessageChange = this.onMessageChange.bind(this);
     this.onSendClick = this.onSendClick.bind(this);
+    this.onActionSelected = this.onActionSelected.bind(this);
+    this.onScrollViewContentSizeChange = this.onScrollViewContentSizeChange.bind(this);
+    this.speakOutLastMessage = this.speakOutLastMessage.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.messages.length > prevProps.messages.length) {
+      this.speakOutLastMessage();
+    }    
   }
 
   onSendClick() {
     const message = this.state.messageText;
+
+    if (!message) return;
 
     this.props.setUserMessage({ message });
     this.onMessageChange('');
@@ -46,9 +54,19 @@ export default class Chat extends Component {
     });
   }
 
+  onActionSelected(position) {
+    if (position === 0) {
+      this.props.toggleSpeechOut();
+    }
+  }
+
+  onScrollViewContentSizeChange(contentWidth, contentHeight) {
+    this.refs.scrollView.scrollTo({ y: contentHeight });
+  }
+
   async textSpeech() {
     try {
-      const spokenText = await SpeechAndroid.startSpeech("Listening...", SpeechAndroid.ENGLISH);
+      const spokenText = await SpeechAndroid.startSpeech("Say something...", SpeechAndroid.ENGLISH);
       this.setState({
         messageText: spokenText,
       }, () => {
@@ -59,18 +77,34 @@ export default class Chat extends Component {
     }
   }
 
+  speakOutLastMessage() {
+    const lastMessage = this.props.messages[this.props.messages.length - 1];
+
+    if (
+      this.props.settings.speechOut &&
+      lastMessage &&
+      lastMessage.type === 'BOT' &&
+      lastMessage.text &&
+      typeof lastMessage.text === 'string'
+    ) {
+      Tts.speak(lastMessage.text);
+    } else {
+      Tts.stop();
+    }
+  }
+
   render() {
     const toolbarActions = [
       {
         title: 'Volume',
-        icon: volumeOn,
+        icon: this.props.settings.speechOut ? volumeOn : volumeOff,
         show: 'always',
       },
-      {
-        title: 'More',
-        icon: more,
-        show: 'always',
-      },
+      // {
+      //   title: 'More',
+      //   icon: more,
+      //   show: 'always',
+      // },
     ];
 
     return (
@@ -79,12 +113,12 @@ export default class Chat extends Component {
           title="Auckland Castle"
           titleColor="#ffffff"
           style={styles.toolbar}
-          navIcon={logo}
           actions={toolbarActions}
+          onActionSelected={this.onActionSelected}
         />
-        <View style={{flex: 1}}>
-          <View style={{flex: 1}}>
-            <ScrollView>
+        <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, paddingTop: 10 }}>
+            <ScrollView ref="scrollView" onContentSizeChange={this.onScrollViewContentSizeChange}>
               {
                 this.props.messages.map((message, index) => {
                   if (message.type === 'BOT') {
@@ -107,7 +141,8 @@ export default class Chat extends Component {
             <TextInput
               style={styles.textInput}
               value={this.state.messageText}
-              underlineColorAndroid="#ffffff"
+              underlineColorAndroid="transparent"
+              placeholder="Type something..."
               onChangeText={this.onMessageChange}
               onSubmitEditing={this.onSendClick}
             />
@@ -116,7 +151,7 @@ export default class Chat extends Component {
               style={styles.touchableSend}
               underlayColor="#e4e4e4"
             >
-              <Text style={{ color: '#3d81a0', fontWeight: 'bold'}}>SEND</Text>
+              <Text style={{ color: '#3d81a0', fontWeight: 'bold', fontSize: 16}}>SEND</Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -146,7 +181,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     color: '#333333',
-    fontSize: 14,
+    fontSize: 16,
     height: 35,
     marginRight: 10,
     marginLeft: 10,
@@ -167,5 +202,5 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });
