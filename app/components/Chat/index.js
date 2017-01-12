@@ -13,10 +13,10 @@ import ChatBot from './ChatBot';
 import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
 import Tts from 'react-native-tts';
-import mic from './../../../assets/img/ic_keyboard_voice_primary.png';
-// import more from './../../../assets/img/ic_more_vert_white_24dp.png';
-import volumeOff from './../../../assets/img/ic_volume_off_white_24dp.png';
-import volumeOn from './../../../assets/img/ic_volume_up_white_24dp.png';
+import mic from './img/ic_mic.png';
+// import more from './img/ic_more_vert_white.png';
+import volumeOff from './img/ic_volume_off_white.png';
+import volumeOn from './img/ic_volume_up_white.png';
 
 export default class Chat extends Component {
   constructor(props) {

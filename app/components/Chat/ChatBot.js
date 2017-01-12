@@ -5,8 +5,8 @@ import {
   View,
   Image,
 } from 'react-native';
-import chat from './../../../assets/img/arrow-chat-secondary.png';
-import botPic from './../../../assets/img/ic_bot.png';
+import chat from './img/arrow-chat-secondary.png';
+import botPic from './img/ic_bot.png';
 
 
 
@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
   chatImage: {
     position: 'relative',
     left: 5,
-    bottom: -1,
+    bottom: 0,
   }
 });

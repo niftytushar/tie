@@ -5,7 +5,7 @@ import {
   View,
   Image,
 } from 'react-native';
-import chat from './../../../assets/img/arrow-chat-primary.png';
+import chat from './img/arrow-chat-primary.png';
 
 
 export default class ChatUser extends Component {
