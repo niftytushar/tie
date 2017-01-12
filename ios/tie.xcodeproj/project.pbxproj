@@ -24,6 +24,7 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		E73B124B13F54AC5BE294A80 /* libSpeechSynthesizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A072CFE7012B4DBE91965A68 /* libSpeechSynthesizer.a */; };
+		528965D9B33A40B88774FBDD /* libTextToSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9783B5540AA9476A98FA7BAB /* libTextToSpeech.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +237,8 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		FE73F93D95C8424F92C1B8A3 /* SpeechSynthesizer.xcodeproj */ = {isa = PBXFileReference; name = "SpeechSynthesizer.xcodeproj"; path = "../node_modules/react-native-speech/SpeechSynthesizer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A072CFE7012B4DBE91965A68 /* libSpeechSynthesizer.a */ = {isa = PBXFileReference; name = "libSpeechSynthesizer.a"; path = "libSpeechSynthesizer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		FC6D2BD52DD54BB397387613 /* TextToSpeech.xcodeproj */ = {isa = PBXFileReference; name = "TextToSpeech.xcodeproj"; path = "../node_modules/react-native-tts/ios/TextToSpeech.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		9783B5540AA9476A98FA7BAB /* libTextToSpeech.a */ = {isa = PBXFileReference; name = "libTextToSpeech.a"; path = "libTextToSpeech.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				E73B124B13F54AC5BE294A80 /* libSpeechSynthesizer.a in Frameworks */,
+				528965D9B33A40B88774FBDD /* libTextToSpeech.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +412,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				FE73F93D95C8424F92C1B8A3 /* SpeechSynthesizer.xcodeproj */,
+				FC6D2BD52DD54BB397387613 /* TextToSpeech.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -848,6 +854,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tie.app/tie";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};

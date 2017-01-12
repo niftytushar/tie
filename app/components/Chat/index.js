@@ -11,12 +11,15 @@ import {
 import ChatBot from './ChatBot';
 import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
+import Tts from 'react-native-tts';
 
 export default class Chat extends Component {
   constructor() {
     super();
 
     this.state = { messageText: '' };
+
+    Tts.speak('Hello, my name is Tie. How can I help you?');
 
     this.textSpeech = this.textSpeech.bind(this);
   }
