@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 60,
-    backgroundColor: '#77bacd',
+    backgroundColor: '#e9ecf1',
   },
   textBot: {
     color: '#4d5d74',

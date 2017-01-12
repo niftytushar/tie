@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   toolbar: {
-    backgroundColor: '#77bacd',
+    backgroundColor: '#3d81a0',
     height: 56,
     elevation: 2,
   },
