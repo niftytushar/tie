@@ -13,6 +13,7 @@ import ChatBot from './ChatBot';
 import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
 import Tts from 'react-native-tts';
+import mic from './../../../assets/img/ic_keyboard_voice_primary_48px.png';
 
 export default class Chat extends Component {
   constructor() {
@@ -58,8 +59,8 @@ export default class Chat extends Component {
             </ScrollView>
           </View>
           <View style={styles.sendingBox}>
-            <TouchableHighlight onPress={this.textSpeech}>
-              <Image />
+            <TouchableHighlight>
+              <Image source={mic}/>
             </TouchableHighlight>
             <TextInput
               style={styles.textInput}
@@ -100,6 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     height: 35,
     marginRight: 10,
+    marginLeft: 10,
     backgroundColor: '#ffffff',
     borderWidth: 1,
     borderColor: '#e4e4e4',

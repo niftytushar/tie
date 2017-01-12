@@ -3,7 +3,10 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from 'react-native';
+import chat from './../../../assets/img/arrow-chat-secondary.png';
+
 
 export default class ChatUser extends Component {
   constructor() {
@@ -20,7 +23,8 @@ export default class ChatUser extends Component {
       }}>
         <View style={styles.avatar}>
         </View>
-        <View style={{flex: 1, paddingRight: 50}}>
+        <View style={{flex: 1, paddingRight: 50, flexDirection: 'row', alignItems: 'flex-end'}}>
+          <Image source={chat} style={styles.chatImage}/>
           <View style={styles.bubbleBot}>
             <Text style={styles.textBot}>{this.props.message}</Text>
           </View>
@@ -35,7 +39,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderBottomLeftRadius: 0,
     padding: 10,
-    backgroundColor: '#e9ecf1'
+    backgroundColor: '#e9ecf1',
+    position: 'relative',
   },
    avatar: {
     height: 50,
@@ -48,5 +53,10 @@ const styles = StyleSheet.create({
     color: '#4d5d74',
     lineHeight: 20,
     fontSize: 14,
+  },
+  chatImage: {
+    position: 'relative',
+    left: -10,
+    bottom: 0,
   }
 });
