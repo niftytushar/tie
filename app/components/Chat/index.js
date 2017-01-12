@@ -6,7 +6,8 @@ import {
   TouchableHighlight,
   ToolbarAndroid,
   TextInput,
-  ScrollView
+  ScrollView,
+  Image
 } from 'react-native';
 import ChatBot from './ChatBot';
 import ChatUser from './ChatUser';
@@ -54,18 +55,11 @@ export default class Chat extends Component {
             </ScrollView>
           </View>
           <View style={styles.sendingBox}>
+            <TouchableHighlight onPress={this.textSpeech}>
+              <Image />
+            </TouchableHighlight>
             <TextInput
-              style={{
-                flex: 1,
-                color: '#333333',
-                fontSize: 14,
-                height: 35,
-                marginRight: 10,
-                backgroundColor: '#ffffff',
-                borderWidth: 1,
-                borderColor: '#e4e4e4',
-                borderRadius: 2,
-              }}
+              style={styles.textInput}
               value={this.state.messageText}
               underlineColorAndroid="#ffffff"
             />
@@ -96,5 +90,16 @@ const styles = StyleSheet.create({
     height: 55,
     borderWidth: 1,
     borderColor: '#e4e4e4',
+  },
+  textInput: {
+    flex: 1,
+    color: '#333333',
+    fontSize: 14,
+    height: 35,
+    marginRight: 10,
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#e4e4e4',
+    borderRadius: 2,
   },
 });

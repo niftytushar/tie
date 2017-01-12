@@ -12,9 +12,16 @@ export default class ChatUser extends Component {
 
   render() {
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center',  padding: 20, paddingTop: 0, justifyContent: 'flex-end'}}>
-        <View style={styles.bubbleUser}>
-          <Text style={styles.textUser}>{this.props.message}</Text>
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'flex-end', 
+        padding: 20,
+        paddingTop: 0,
+      }}>
+        <View style={{flex: 1, paddingLeft: 50, flexDirection: 'row', justifyContent: 'flex-end'}}>
+          <View style={styles.bubbleUser}>
+            <Text style={styles.textUser}>{this.props.message}</Text>
+          </View>
         </View>
         <View style={styles.avatar}>
         </View>
@@ -28,8 +35,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderBottomRightRadius: 0,
     backgroundColor: '#77bacd',
-    marginLeft: 50,
-    marginRight: 15,
     padding: 10,
   },
    avatar: {
@@ -37,6 +42,7 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 60,
     backgroundColor: '#77bacd',
+    marginLeft: 15,
   },
   textUser: {
     color: '#ffffff',
