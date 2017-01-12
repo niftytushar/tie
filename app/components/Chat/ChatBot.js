@@ -6,6 +6,8 @@ import {
   Image,
 } from 'react-native';
 import chat from './../../../assets/img/arrow-chat-secondary.png';
+import botPic from './../../../assets/img/ic_bot.png';
+
 
 
 export default class ChatUser extends Component {
@@ -22,6 +24,7 @@ export default class ChatUser extends Component {
         paddingTop: 0,
       }}>
         <View style={styles.avatar}>
+          <Image source={botPic} />
         </View>
         <View style={{flex: 1, paddingRight: 50, flexDirection: 'row', alignItems: 'flex-end'}}>
           <Image source={chat} style={styles.chatImage}/>
@@ -46,7 +49,6 @@ const styles = StyleSheet.create({
     height: 48,
     width: 48,
     borderRadius: 60,
-    backgroundColor: '#e9ecf1',
   },
   textBot: {
     color: '#4d5d74',

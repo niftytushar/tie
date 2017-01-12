@@ -14,6 +14,10 @@ import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
 import Tts from 'react-native-tts';
 import mic from './../../../assets/img/ic_keyboard_voice_primary.png';
+import logo from './../../../assets/img/icon-white.png';
+import more from './../../../assets/img/ic_more_vert_white_24dp.png';
+import volumeOff from './../../../assets/img/ic_volume_off_white_24dp.png';
+import volumeOn from './../../../assets/img/ic_volume_up_white_24dp.png';
 
 export default class Chat extends Component {
   constructor() {
@@ -38,15 +42,30 @@ export default class Chat extends Component {
   }
 
   render() {
+    const toolbarActions = [
+      {
+        title: 'Volume',
+        icon: volumeOn,
+        show: 'always',
+      },
+      {
+        title: 'More',
+        icon: more,
+        show: 'always',
+      },
+    ];
+
     return (
       <View style={styles.container}>
         <ToolbarAndroid
           title="Auckland Castle"
           titleColor="#ffffff"
           style={styles.toolbar}
+          navIcon={logo}
+          actions={toolbarActions}
         />
         <View style={{flex: 1}}>
-          <View style={{flex: 1, paddingTop: 30}}>
+          <View style={{flex: 1}}>
             <ScrollView>
               <ChatBot message="Hi Rebecca, which skills do you want feedback on?"/>
               <ChatUser message="presentation" />
@@ -59,7 +78,11 @@ export default class Chat extends Component {
             </ScrollView>
           </View>
           <View style={styles.sendingBox}>
-            <TouchableHighlight>
+            <TouchableHighlight
+              onPress={this.textSpeech}
+              style={styles.touchablaButton}
+              underlayColor="#e4e4e4"
+            >
               <Image source={mic}/>
             </TouchableHighlight>
             <TextInput
@@ -67,8 +90,12 @@ export default class Chat extends Component {
               value={this.state.messageText}
               underlineColorAndroid="#ffffff"
             />
-            <TouchableHighlight onPress={this.textSpeech}>
-              <Text>SEND</Text>
+            <TouchableHighlight
+              onPress={this.textSpeech}
+              style={styles.touchableSend}
+              underlayColor="#e4e4e4"
+            >
+              <Text style={{ color: '#3d81a0', fontWeight: 'bold'}}>SEND</Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -107,4 +134,17 @@ const styles = StyleSheet.create({
     borderColor: '#e4e4e4',
     borderRadius: 2,
   },
+  touchablaButton: {
+    height: 35,
+    width: 35,
+    borderRadius: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  touchableSend: {
+    padding: 6,
+    borderRadius: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
