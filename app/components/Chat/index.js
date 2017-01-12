@@ -28,10 +28,22 @@ export default class Chat extends Component {
     // Tts.speak('Hello, my name is Tie. How can I help you?');
 
     this.textSpeech = this.textSpeech.bind(this);
+    this.onMessageChange = this.onMessageChange.bind(this);
+    this.onSendClick = this.onSendClick.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getResponse('please clean my room');
+  onSendClick() {
+    const message = this.state.messageText;
+
+    this.props.setUserMessage({ message });
+    this.onMessageChange('');
+    this.props.getResponse(this.state.messageText);
+  }
+
+  onMessageChange(text) {
+    this.setState({
+      messageText: text,
+    });
   }
 
   async textSpeech() {
@@ -39,6 +51,8 @@ export default class Chat extends Component {
       const spokenText = await SpeechAndroid.startSpeech("Listening...", SpeechAndroid.ENGLISH);
       this.setState({
         messageText: spokenText,
+      }, () => {
+        this.onSendClick();
       });
     } catch(error) {
       console.log(error);
@@ -71,14 +85,15 @@ export default class Chat extends Component {
         <View style={{flex: 1}}>
           <View style={{flex: 1}}>
             <ScrollView>
-              <ChatBot message="Hi Rebecca, which skills do you want feedback on?"/>
-              <ChatUser message="presentation" />
-              <ChatBot message="Is it specific to an event? If so, please enter date and details." />
-              <ChatUser message="sales presentation made by me on the 4th January 2017" />
-              <ChatBot message="Who would you like the presentation feedback from?Jonathan Ruffer" />
-              <ChatUser message="Jonathan Ruffer" />
-              <ChatBot message="Great your feedback request has been sent to " />
-              <ChatUser message="Jonathan Ruffer" />
+              {
+                this.props.messages.map((message, index) => {
+                  if (message.type === 'BOT') {
+                    return (<ChatBot key={index} message={message.text} />);
+                  } else {
+                    return (<ChatUser key={index} message={message.text} />);
+                  }
+                })
+              }
             </ScrollView>
           </View>
           <View style={styles.sendingBox}>
@@ -93,9 +108,11 @@ export default class Chat extends Component {
               style={styles.textInput}
               value={this.state.messageText}
               underlineColorAndroid="#ffffff"
+              onChangeText={this.onMessageChange}
+              onSubmitEditing={this.onSendClick}
             />
             <TouchableHighlight
-              onPress={this.textSpeech}
+              onPress={this.onSendClick}
               style={styles.touchableSend}
               underlayColor="#e4e4e4"
             >

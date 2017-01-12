@@ -21,3 +21,10 @@ export function setResponse({ message }) {
     message,
   }
 }
+
+export function setUserMessage({ message }) {
+  return {
+    type: types.SET_USER_MESSAGE,
+    message,
+  }
+}

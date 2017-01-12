@@ -9,4 +9,11 @@ export const messages = createReducer([], {
     };
     return state.concat([message]);
   },
+  [types.SET_USER_MESSAGE](state, action) {
+    const message = {
+      text: action.message,
+      type: 'USER',
+    };
+    return state.concat([message]);
+  },
 });
