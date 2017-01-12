@@ -20,14 +20,18 @@ import volumeOff from './../../../assets/img/ic_volume_off_white_24dp.png';
 import volumeOn from './../../../assets/img/ic_volume_up_white_24dp.png';
 
 export default class Chat extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = { messageText: '' };
 
-    Tts.speak('Hello, my name is Tie. How can I help you?');
+    // Tts.speak('Hello, my name is Tie. How can I help you?');
 
     this.textSpeech = this.textSpeech.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getResponse('please clean my room');
   }
 
   async textSpeech() {

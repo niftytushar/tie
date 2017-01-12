@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import Chat from './../components/Chat';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../actions';
 import {
   StyleSheet,
   View,
 } from 'react-native';
+import Chat from './../components/Chat';
 
-export default class AppContainer extends Component {
+class AppContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Chat />
+        <Chat {...this.props} />
       </View>
-    );
-  };
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -21,3 +23,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    messages: state.messages,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
