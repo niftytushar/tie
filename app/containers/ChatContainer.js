@@ -19,6 +19,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
+    auth: state.auth,
     messages: state.messages,
     suggestions: state.suggestions,
     settings: state.settings,

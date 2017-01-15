@@ -142,7 +142,7 @@ export default class Chat extends Component {
                   if (message.type === 'BOT') {
                     return (<ChatBot key={index} message={message.text} image={message.key === 'boohoo_gift_card'} />);
                   } else {
-                    return (<ChatUser key={index} message={message.text} />);
+                    return (<ChatUser key={index} message={message.text} user={this.props.auth.username} />);
                   }
                 })
               }

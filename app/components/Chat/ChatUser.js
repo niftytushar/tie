@@ -6,8 +6,8 @@ import {
   Image,
 } from 'react-native';
 import chat from './img/arrow-chat-primary.png';
-import user from './img/user.jpg';
-
+import rebecca from './img/user.jpg';
+import person from './img/ic_person_white.png';
 
 export default class ChatUser extends Component {
   constructor() {
@@ -30,7 +30,7 @@ export default class ChatUser extends Component {
         </View>
         <View style={styles.avatarContainer}>
           <Image
-            source={user}
+            source={this.props.user === 'rebecca' ? rebecca : person}
             resizeMode='cover'
             style={styles.avatar}
           />
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   avatarContainer: {
     height: 48,
     width: 48,
+    backgroundColor: '#e9ecf1',
     borderRadius: 60,
     borderWidth: 0.5,
     borderColor: '#e9ecf1',
