@@ -7,8 +7,7 @@ import {
 } from 'react-native';
 import chat from './img/arrow-chat-secondary.png';
 import botPic from './img/ic_bot.png';
-
-
+import bohooCard from './img/bohoo.jpg';
 
 export default class ChatUser extends Component {
   constructor() {
@@ -26,10 +25,19 @@ export default class ChatUser extends Component {
         <View style={styles.avatar}>
           <Image source={botPic} />
         </View>
-        <View style={{flex: 1, paddingRight: 50, flexDirection: 'row', alignItems: 'flex-end'}}>
+        <View style={{flex: 1, paddingRight: 50, flexDirection: 'row', alignItems: 'flex-end', position: 'relative', left: -3}}>
           <Image source={chat} style={styles.chatImage}/>
           <View style={styles.bubbleBot}>
             <Text style={styles.textBot}>{this.props.message}</Text>
+            {
+              this.props.image ?
+                (
+                  <View>
+                    <Image source={bohooCard} resizeMode="contain" style={{width: 200}} />
+                  </View>
+                ) :
+                undefined
+            }
           </View>
         </View>
       </View>

@@ -5,15 +5,43 @@ import { ActionCreators } from '../actions';
 import {
   StyleSheet,
   View,
+  Navigator,
 } from 'react-native';
-import Chat from './../components/Chat';
+
+import LoginPage from './../components/LoginPage';
+import ChatContainer from './ChatContainer';
 
 class AppContainer extends Component {
+  constructor() {
+    super();
+
+    this.renderScene = this.renderScene.bind(this);
+  }
+
+  renderScene(route, navigator) {
+    switch (route.id) {
+      case 'auth':
+        return (
+          <LoginPage
+            {...this.props}
+            onLoginSuccess={() => {
+              navigator.push({ id: 'chat' });
+            }}
+          />
+        );
+
+      case 'chat':
+        return (<ChatContainer />);
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Chat {...this.props} />
-      </View>
+      <Navigator
+        style={styles.container}
+        initialRoute={{ id: 'auth' }}
+        renderScene={this.renderScene}
+      />
     )
   }
 }
@@ -28,11 +56,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-function mapStateToProps(state) {
-  return {
-    messages: state.messages,
-    settings: state.settings,
-  };
+function mapStateToProps() {
+  return {};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

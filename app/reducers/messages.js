@@ -1,12 +1,11 @@
 import createReducer from '../lib/createReducer';
 import * as types from '../actions/types';
 
-export const messages = createReducer([
-    { text: 'Hi, welcome to Auckland Castle. How can I help you today?', type: 'BOT' },
-  ], {
+export const messages = createReducer([], {
   [types.GET_MESSAGE_SUCCESS](state, action) {
     const message = {
-      text: action.message,
+      text: action.message.reply,
+      key: action.message.key,
       type: 'BOT',
     };
     return state.concat([message]);

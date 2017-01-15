@@ -9,12 +9,16 @@ import {
   ScrollView,
   Image
 } from 'react-native';
-import ChatBot from './ChatBot';
-import ChatUser from './ChatUser';
 import SpeechAndroid from 'react-native-android-voice';
 import Tts from 'react-native-tts';
+
+import ChatBot from './ChatBot';
+import ChatUser from './ChatUser';
+import SuggestionItem from './SuggestionItem';
+
 import mic from './img/ic_mic.png';
 // import more from './img/ic_more_vert_white.png';
+import logo from './img/icon-white.png';
 import volumeOff from './img/ic_volume_off_white.png';
 import volumeOn from './img/ic_volume_up_white.png';
 
@@ -29,7 +33,12 @@ export default class Chat extends Component {
     this.onSendClick = this.onSendClick.bind(this);
     this.onActionSelected = this.onActionSelected.bind(this);
     this.onScrollViewContentSizeChange = this.onScrollViewContentSizeChange.bind(this);
+    this.onSuggestionClick = this.onSuggestionClick.bind(this);
     this.speakOutLastMessage = this.speakOutLastMessage.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getResponse('root');
   }
 
   componentDidUpdate(prevProps) {
@@ -62,6 +71,14 @@ export default class Chat extends Component {
 
   onScrollViewContentSizeChange(contentWidth, contentHeight) {
     this.refs.scrollView.scrollTo({ y: contentHeight });
+  }
+
+  onSuggestionClick(suggestion) {
+    this.setState({
+      messageText: suggestion,
+    }, () => {
+      this.onSendClick();
+    });
   }
 
   async textSpeech() {
@@ -111,6 +128,7 @@ export default class Chat extends Component {
       <View style={styles.container}>
         <ToolbarAndroid
           title="Auckland Castle"
+          navIcon={logo}
           titleColor="#ffffff"
           style={styles.toolbar}
           actions={toolbarActions}
@@ -122,11 +140,27 @@ export default class Chat extends Component {
               {
                 this.props.messages.map((message, index) => {
                   if (message.type === 'BOT') {
-                    return (<ChatBot key={index} message={message.text} />);
+                    return (<ChatBot key={index} message={message.text} image={message.key === 'boohoo_gift_card'} />);
                   } else {
                     return (<ChatUser key={index} message={message.text} />);
                   }
                 })
+              }
+            </ScrollView>
+          </View>
+          <View style={styles.suggestionsContainer}>
+            <ScrollView
+              style={styles.suggestionsBox}
+              horizontal
+            >
+              {
+                this.props.suggestions.map((suggestion, index) =>
+                  <SuggestionItem
+                    key={index}
+                    suggestion={suggestion}
+                    onClick={this.onSuggestionClick}
+                  />
+                )
               }
             </ScrollView>
           </View>
@@ -163,11 +197,27 @@ export default class Chat extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   toolbar: {
     backgroundColor: '#3d81a0',
     height: 56,
     elevation: 2,
+  },
+  suggestionsContainer: {
+    height: 40,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+  },
+  suggestionsBox: {
+    flexDirection: 'row',
+  },
+  suggestionItem: {
+    paddingHorizontal: 20,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderColor: '#e4e4e4',
+    borderRadius: 20,
   },
   sendingBox: {
     flexDirection: 'row',

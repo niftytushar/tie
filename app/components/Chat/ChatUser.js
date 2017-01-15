@@ -6,6 +6,7 @@ import {
   Image,
 } from 'react-native';
 import chat from './img/arrow-chat-primary.png';
+import user from './img/user.jpg';
 
 
 export default class ChatUser extends Component {
@@ -21,14 +22,18 @@ export default class ChatUser extends Component {
         padding: 20,
         paddingTop: 0,
       }}>
-        <View style={{flex: 1, paddingLeft: 50, flexDirection: 'row', justifyContent: 'flex-end',alignItems: 'flex-end'}}>
+        <View style={{flex: 1, paddingLeft: 50, flexDirection: 'row', justifyContent: 'flex-end',alignItems: 'flex-end', position: 'relative', right: -5}}>
           <View style={styles.bubbleUser}>
             <Text style={styles.textUser}>{this.props.message}</Text>
           </View>
           <Image source={chat} style={styles.chatImage} />
         </View>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>JD</Text>
+        <View style={styles.avatarContainer}>
+          <Image
+            source={user}
+            resizeMode='cover'
+            style={styles.avatar}
+          />
         </View>
       </View>
     );
@@ -42,13 +47,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#3d81a0',
     padding: 10,
   },
-   avatar: {
+  avatarContainer: {
     height: 48,
     width: 48,
     borderRadius: 60,
-    backgroundColor: '#e9ecf1',
+    borderWidth: 0.5,
+    borderColor: '#e9ecf1',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  avatar: {
+    height: 47,
+    width: 47,
+    borderRadius: 60,
   },
   avatarText: {
     color: '#4d5d74',
