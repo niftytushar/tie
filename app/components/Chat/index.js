@@ -18,7 +18,7 @@ import SuggestionItem from './SuggestionItem';
 
 import mic from './img/ic_mic.png';
 // import more from './img/ic_more_vert_white.png';
-import logo from './img/icon-white.png';
+import logo from './img/icon-gold.png';
 import volumeOff from './img/ic_volume_off_white.png';
 import volumeOn from './img/ic_volume_up_white.png';
 

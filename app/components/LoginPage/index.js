@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import user1 from './img/ic_person_white.png';
+import user1 from './img/jonathan.jpg';
 import user2 from './img/user.jpg';
 
 

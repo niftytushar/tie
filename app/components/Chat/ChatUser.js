@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import chat from './img/arrow-chat-primary.png';
 import rebecca from './img/user.jpg';
-import person from './img/ic_person_white.png';
+import person from './img/jonathan.jpg';
 
 export default class ChatUser extends Component {
   constructor() {

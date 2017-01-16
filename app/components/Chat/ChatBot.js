@@ -6,7 +6,7 @@ import {
   Image,
 } from 'react-native';
 import chat from './img/arrow-chat-secondary.png';
-import botPic from './img/ic_bot.png';
+import botPic from './img/icon-gold.png';
 import bohooCard from './img/bohoo.jpg';
 
 export default class ChatUser extends Component {
