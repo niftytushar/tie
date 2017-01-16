@@ -29,7 +29,8 @@ export default class CategoryPage extends Component {
         }}
       >
         <Image source={logo} />
-        <View style={styles.container}> 
+        <Text style={styles.programmeName}>Welcome to the iAppreciate Program</Text>
+        <View style={styles.container}>
           <TouchableOpacity style={{margin: 10}} onPress={this.props.onCategoryTap}>
               <View style={styles.actions}>
                 <Text style={{flex: 1, fontSize: 20}}>Feedback</Text>
@@ -55,6 +56,10 @@ export default class CategoryPage extends Component {
 }
 
 const styles = StyleSheet.create({
+  programmeName: {
+    marginTop: 15,
+    paddingHorizontal: 10,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
