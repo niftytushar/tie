@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 
 import LoginPage from './../components/LoginPage';
+import CategoryPage from './../components/CategoryPage';
+import Feedback from './../components/CategoryPage/Feedback';
 import ChatContainer from './ChatContainer';
 
 class AppContainer extends Component {
@@ -20,18 +22,40 @@ class AppContainer extends Component {
 
   renderScene(route, navigator) {
     switch (route.id) {
+      case 'category':
+        return (
+          <CategoryPage
+            onCategoryTap={() => {
+              navigator.push({ id: 'feedback' });
+            }}
+          />
+        );
+
+      case 'feedback':
+        return (
+          <Feedback
+            onFeedbackActionTap={(feedbackOption) => {
+              navigator.push({ id: 'chat', feedbackOption: feedbackOption });
+            }}
+          />
+        );
+
       case 'auth':
         return (
           <LoginPage
             {...this.props}
             onLoginSuccess={() => {
-              navigator.push({ id: 'chat' });
+              navigator.push({ id: 'category' });
             }}
           />
         );
 
       case 'chat':
-        return (<ChatContainer />);
+        return (
+          <ChatContainer
+            initalMessage={route.feedbackOption}
+          />
+        );
     }
   }
 

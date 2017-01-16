@@ -18,7 +18,7 @@ import SuggestionItem from './SuggestionItem';
 
 import mic from './img/ic_mic.png';
 // import more from './img/ic_more_vert_white.png';
-import logo from './img/icon-gold.png';
+import logo from './img/logo-full.png';
 import volumeOff from './img/ic_volume_off_white.png';
 import volumeOn from './img/ic_volume_up_white.png';
 
@@ -38,7 +38,8 @@ export default class Chat extends Component {
   }
 
   componentDidMount() {
-    this.props.getResponse('root');
+    console.log(this.props.initalMessage);
+    this.props.getResponse(this.props.initalMessage);
   }
 
   componentDidUpdate(prevProps) {
@@ -127,9 +128,7 @@ export default class Chat extends Component {
     return (
       <View style={styles.container}>
         <ToolbarAndroid
-          title="Auckland Castle"
-          navIcon={logo}
-          titleColor="#ffffff"
+          logo={logo}
           style={styles.toolbar}
           actions={toolbarActions}
           onActionSelected={this.onActionSelected}
@@ -200,9 +199,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   toolbar: {
-    backgroundColor: '#3d81a0',
+    backgroundColor: '#ffffff',
     height: 56,
     elevation: 2,
+    borderBottomWidth: 1,
+    borderColor: '#e9ecf1',
   },
   suggestionsContainer: {
     height: 40,
