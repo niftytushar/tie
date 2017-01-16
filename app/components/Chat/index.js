@@ -19,8 +19,11 @@ import SuggestionItem from './SuggestionItem';
 import mic from './img/ic_mic.png';
 // import more from './img/ic_more_vert_white.png';
 import logo from './img/logo-full.png';
-import volumeOff from './img/ic_volume_off_white.png';
-import volumeOn from './img/ic_volume_up_white.png';
+import volumeOff from './img/ic_volume_off.png';
+import volumeOn from './img/ic_volume_up.png';
+import feedbackIcon from './img/feedback.png';
+// import rewardIcon from './img/reward.png';
+// import shopIcon from './img/shop.png';
 
 export default class Chat extends Component {
   constructor(props) {
@@ -38,7 +41,6 @@ export default class Chat extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.initalMessage);
     this.props.getResponse(this.props.initalMessage);
   }
 
@@ -133,6 +135,10 @@ export default class Chat extends Component {
           actions={toolbarActions}
           onActionSelected={this.onActionSelected}
         />
+        <View style={styles.subHeader}>
+          <Image source={feedbackIcon} />
+          <Text style={styles.subHeaderCategory}>{this.props.initalMessage}</Text>
+        </View>
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1, paddingTop: 10 }}>
             <ScrollView ref="scrollView" onContentSizeChange={this.onScrollViewContentSizeChange}>
@@ -197,6 +203,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
+  },
+  subHeader: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    flexDirection: 'row',
+    backgroundColor: '#e4e4e4',
+  },
+  subHeaderCategory: {
+    fontSize: 16,
+    marginLeft: 10,
   },
   toolbar: {
     backgroundColor: '#ffffff',

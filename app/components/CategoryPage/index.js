@@ -30,19 +30,19 @@ export default class CategoryPage extends Component {
       >
         <Image source={logo} />
         <View style={styles.container}> 
-          <TouchableOpacity style={{margin: 5}} onPress={this.props.onCategoryTap}>
+          <TouchableOpacity style={{margin: 10}} onPress={this.props.onCategoryTap}>
               <View style={styles.actions}>
                 <Text style={{flex: 1, fontSize: 20}}>Feedback</Text>
                 <Image source={feedback}/>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{margin: 5}}>
+          <TouchableOpacity style={{margin: 10}}>
               <View style={styles.actions}>
                 <Text style={{flex: 1, fontSize: 20}}>Reward</Text>
                 <Image source={reward}/>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{margin: 5}}>
+          <TouchableOpacity style={{margin: 10}}>
               <View style={styles.actions}>
                 <Text style={{flex: 1, fontSize: 20}}>Shop</Text>
                 <Image source={shop}/>
@@ -63,11 +63,12 @@ const styles = StyleSheet.create({
   actions: {
     alignItems: 'center',
     flexDirection: 'row',
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     borderWidth: 1,
     borderColor: '#eee',
-    borderRadius: 3,
-    minWidth: 200,
+    borderRadius: 60,
+    minWidth: 220,
     backgroundColor: '#e9ecf1',
   }
 });

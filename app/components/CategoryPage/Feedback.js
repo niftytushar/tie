@@ -59,19 +59,19 @@ export default class Feedback extends Component {
       >
         <Image source={logo} />
         <View style={styles.container}> 
-          <TouchableOpacity style={{margin: 5}} onPress={this.onAskFeedbackTap}>
+          <TouchableOpacity style={{margin: 10}} onPress={this.onAskFeedbackTap}>
               <View style={styles.actions}>
-                <Text style={{flex: 1, fontSize: 20}}>Ask for feedback</Text>
+                <Text style={styles.actionText}>Ask for feedback</Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{margin: 5}} onPress={this.onGiveFeedbackTap}>
+          <TouchableOpacity style={{margin: 10}} onPress={this.onGiveFeedbackTap}>
               <View style={styles.actions}>
-                <Text style={{flex: 1, fontSize: 20}}>Give Feedback</Text>
+                <Text style={styles.actionText}>Give Feedback</Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{margin: 5}} onPress={this.onRecievedFeedbackTap}>
+          <TouchableOpacity style={{margin: 10}} onPress={this.onRecievedFeedbackTap}>
               <View style={styles.actions}>
-                <Text style={{flex: 1, fontSize: 20}}>Received Feedback</Text>
+                <Text style={styles.actionText}>Received Feedback</Text>
               </View>
           </TouchableOpacity>
         </View>
@@ -90,11 +90,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     borderWidth: 1,
     borderColor: '#eee',
-    borderRadius: 3,
-    minWidth: 200,
+    borderRadius: 60,
+    minWidth: 240,
     backgroundColor: '#e9ecf1',
-  }
+  },
+  actionText: {
+    flex: 1,
+    fontSize: 20,
+    textAlign: 'center',
+  },
 });
