@@ -25,6 +25,7 @@ class AppContainer extends Component {
       case 'category':
         return (
           <CategoryPage
+            {...this.props}
             onCategoryTap={() => {
               navigator.push({ id: 'feedback' });
             }}

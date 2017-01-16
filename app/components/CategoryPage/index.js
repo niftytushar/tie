@@ -14,7 +14,10 @@ import shop from './img/shop.png';
 export default class CategoryPage extends Component {
   constructor() {
     super();
+  }
 
+  componentDidMount() {
+    this.props.getResponse('root');
   }
 
   render() {

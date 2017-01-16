@@ -24,7 +24,7 @@ export default class Feedback extends Component {
 
   onRecievedFeedbackTap() {
     this.setState({
-      feedbackOption: 'Received Feedback',
+      feedbackOption: 'Feedback Status',
     }, () => {
       this.props.onFeedbackActionTap(this.state.feedbackOption);
     });
@@ -71,7 +71,7 @@ export default class Feedback extends Component {
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}} onPress={this.onRecievedFeedbackTap}>
               <View style={styles.actions}>
-                <Text style={styles.actionText}>Received Feedback</Text>
+                <Text style={styles.actionText}>Feedback Status</Text>
               </View>
           </TouchableOpacity>
         </View>
