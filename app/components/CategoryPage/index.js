@@ -18,6 +18,7 @@ export default class CategoryPage extends Component {
 
   componentDidMount() {
     this.props.getResponse('root');
+    this.props.getNotifications();
   }
 
   render() {

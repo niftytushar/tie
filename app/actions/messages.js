@@ -10,14 +10,14 @@ export function getResponse(message) {
     ].join('&');
 
     return Api.get(`/?${params}`).then(resp => {
-      dispatch(setResponse({ message: resp }));
+      dispatch(setBotMessage({ message: resp }));
     }).catch( (ex) => {
       console.log(ex);
     });
   }
 }
 
-export function setResponse({ message }) {
+export function setBotMessage({ message }) {
   return {
     type: types.GET_MESSAGE_SUCCESS,
     message,

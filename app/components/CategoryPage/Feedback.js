@@ -58,6 +58,9 @@ export default class Feedback extends Component {
         }}
       >
         <Image source={logo} />
+        <Text style={styles.notification}>
+          {this.props.notifications.notification}
+        </Text>
         <View style={styles.container}> 
           <TouchableOpacity style={{margin: 10}} onPress={this.onAskFeedbackTap}>
               <View style={styles.actions}>
@@ -66,11 +69,25 @@ export default class Feedback extends Component {
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}} onPress={this.onGiveFeedbackTap}>
               <View style={styles.actions}>
+                {
+                  this.props.notifications.notification_key === 'feedback_requested' ?
+                    (
+                      <Text style={{ fontSize: 9 }}>🔴</Text>
+                    ) :
+                    undefined
+                }
                 <Text style={styles.actionText}>Give Feedback</Text>
               </View>
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}} onPress={this.onRecievedFeedbackTap}>
               <View style={styles.actions}>
+                {
+                  this.props.notifications.notification_key === 'feedback_received' ?
+                    (
+                      <Text style={{ fontSize: 9 }}>🔴</Text>
+                    ) :
+                    undefined
+                }
                 <Text style={styles.actionText}>Feedback Status</Text>
               </View>
           </TouchableOpacity>
@@ -81,6 +98,11 @@ export default class Feedback extends Component {
 }
 
 const styles = StyleSheet.create({
+  notification: {
+    fontSize: 18,
+    marginTop: 25,
+    paddingHorizontal: 10,
+  },
   container: {
     flex: 1,
     alignItems: 'center',

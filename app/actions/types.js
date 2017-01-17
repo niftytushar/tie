@@ -7,3 +7,6 @@ export const TOGGLE_SPEECH_OUT = 'TOGGLE_SPEECH_OUT';
 
 // Auth
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
+
+// Notifications
+export const GET_NOTIFICATION_SUCCESS = 'GET_NOTIFICATION_SUCCESS';

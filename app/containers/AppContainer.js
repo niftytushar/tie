@@ -35,6 +35,7 @@ class AppContainer extends Component {
       case 'feedback':
         return (
           <Feedback
+            {...this.props}
             onFeedbackActionTap={(feedbackOption) => {
               navigator.push({ id: 'chat', feedbackOption: feedbackOption });
             }}
@@ -81,8 +82,10 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    notifications: state.notifications,
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
