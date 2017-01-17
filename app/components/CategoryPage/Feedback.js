@@ -72,7 +72,7 @@ export default class Feedback extends Component {
                 {
                   this.props.notifications.notification_key === 'feedback_requested' ?
                     (
-                      <Text style={{ fontSize: 9 }}>🔴</Text>
+                      <Text style={styles.notificationIcon}>🔴</Text>
                     ) :
                     undefined
                 }
@@ -84,7 +84,7 @@ export default class Feedback extends Component {
                 {
                   this.props.notifications.notification_key === 'feedback_received' ?
                     (
-                      <Text style={{ fontSize: 9 }}>🔴</Text>
+                      <Text style={styles.notificationIcon}>🔴</Text>
                     ) :
                     undefined
                 }
@@ -114,15 +114,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 10,
     paddingHorizontal: 25,
-    borderWidth: 1,
-    borderColor: '#eee',
+    borderWidth: 0.75,
+    borderColor: '#95cce6',
     borderRadius: 60,
     minWidth: 240,
-    backgroundColor: '#e9ecf1',
   },
   actionText: {
+    color: '#919191',
     flex: 1,
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
+  },
+  notificationIcon: {
+    fontSize: 11,
+    color: '#c96a6a',
   },
 });

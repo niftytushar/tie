@@ -37,19 +37,27 @@ export default class CategoryPage extends Component {
         <View style={styles.container}>
           <TouchableOpacity style={{margin: 10}} onPress={this.props.onCategoryTap}>
               <View style={styles.actions}>
-                <Text style={{flex: 1, fontSize: 20}}>Feedback</Text>
+                {
+                  this.props.notifications.notification_key === 'feedback_received' ||
+                  this.props.notifications.notification_key === 'feedback_requested' ?
+                    (
+                      <Text style={styles.notificationIcon}>🔴</Text>
+                    ) :
+                    undefined
+                }
+                <Text style={styles.actionText}>Feedback</Text>
                 <Image source={feedback}/>
               </View>
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}}>
               <View style={styles.actions}>
-                <Text style={{flex: 1, fontSize: 20}}>Reward</Text>
+                <Text style={styles.actionText}>Reward</Text>
                 <Image source={reward}/>
               </View>
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}}>
               <View style={styles.actions}>
-                <Text style={{flex: 1, fontSize: 20}}>Shop</Text>
+                <Text style={styles.actionText}>Shop</Text>
                 <Image source={shop}/>
               </View>
           </TouchableOpacity>
@@ -74,10 +82,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 10,
     paddingHorizontal: 25,
-    borderWidth: 1,
-    borderColor: '#eee',
+    borderWidth: 0.75,
+    borderColor: '#95cce6',
     borderRadius: 60,
     minWidth: 220,
-    backgroundColor: '#e9ecf1',
-  }
+  },
+  actionText: {
+    color: '#919191',
+    flex: 1,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  notificationIcon: {
+    fontSize: 11,
+    color: '#c96a6a',
+  },
 });

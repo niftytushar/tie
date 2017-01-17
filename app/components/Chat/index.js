@@ -22,8 +22,6 @@ import logo from './img/logo-full.png';
 import volumeOff from './img/ic_volume_off.png';
 import volumeOn from './img/ic_volume_up.png';
 import feedbackIcon from './img/feedback.png';
-// import rewardIcon from './img/reward.png';
-// import shopIcon from './img/shop.png';
 
 export default class Chat extends Component {
   constructor(props) {

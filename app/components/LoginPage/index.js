@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import user1 from './img/jonathan.jpg';
 import user2 from './img/user.jpg';
-
+import logo from './img/icon-gold.png';
 
 export default class LoginPage extends Component {
   constructor() {
@@ -42,11 +42,12 @@ export default class LoginPage extends Component {
           alignItems: 'center',
           backgroundColor: '#3d81a0',
           padding: 20,
-          paddingTop: 40,
+          paddingTop: 100,
           
         }}
       >
-        <Text style={{ textAlign: 'center', fontSize: 24, color: '#ffffff', margin: 20, fontWeight: 'bold'}}>Auckland Castle</Text>
+        <Image source={logo} />
+        <Text style={{ textAlign: 'center', fontSize: 24, color: '#ffffff', margin: 20, marginTop: 20, fontWeight: 'bold'}}>Auckland Castle</Text>
         <View style={styles.userContainer}>
           <View style={styles.user}>
             <TouchableOpacity
