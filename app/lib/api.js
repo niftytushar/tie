@@ -1,3 +1,5 @@
+import config from './../config';
+
 class Api {
   static headers() {
     return {
@@ -24,8 +26,7 @@ class Api {
   }
 
   static xhr(route, params, verb) {
-    const host = 'http://35.165.62.28:5000'
-    const url = `${host}${route}`
+    const url = `${config.API_URL}${route}`
     let options = Object.assign({ method: verb }, params ? { body: JSON.stringify(params) } : null );
     options.headers = Api.headers();
 

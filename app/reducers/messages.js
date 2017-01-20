@@ -8,6 +8,7 @@ export const messages = createReducer([], {
   [types.GET_MESSAGE_SUCCESS](state, action) {
     const message = {
       text: action.message.reply,
+      readText: action.message.reply_read,
       key: action.message.key,
       type: 'BOT',
     };

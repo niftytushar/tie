@@ -102,10 +102,10 @@ export default class Chat extends Component {
       this.props.settings.speechOut &&
       lastMessage &&
       lastMessage.type === 'BOT' &&
-      lastMessage.text &&
-      typeof lastMessage.text === 'string'
+      lastMessage.readText &&
+      typeof lastMessage.readText === 'string'
     ) {
-      Tts.speak(lastMessage.text);
+      Tts.speak(lastMessage.readText);
     } else {
       Tts.stop();
     }
