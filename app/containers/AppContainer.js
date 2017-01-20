@@ -12,6 +12,7 @@ import LoginPage from './../components/LoginPage';
 import CategoryPage from './../components/CategoryPage';
 import Feedback from './../components/CategoryPage/Feedback';
 import ChatContainer from './ChatContainer';
+import History from './../components/History';
 
 class AppContainer extends Component {
   constructor() {
@@ -39,6 +40,9 @@ class AppContainer extends Component {
             onFeedbackActionTap={(feedbackOption) => {
               navigator.push({ id: 'chat', feedbackOption: feedbackOption });
             }}
+            onHistoryTap={() => {
+              navigator.push({ id: 'history' });
+            }}
           />
         );
 
@@ -56,6 +60,15 @@ class AppContainer extends Component {
         return (
           <ChatContainer
             initalMessage={route.feedbackOption}
+          />
+        );
+
+      case 'history':
+        return (
+          <History
+            onBackTap={() => {
+              navigator.pop();
+            }}
           />
         );
     }

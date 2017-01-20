@@ -91,6 +91,11 @@ export default class Feedback extends Component {
                 <Text style={styles.actionText}>Feedback Status</Text>
               </View>
           </TouchableOpacity>
+          <TouchableOpacity style={{margin: 10}} onPress={this.props.onHistoryTap}>
+              <View style={styles.actions}>
+                <Text style={styles.actionText}>History</Text>
+              </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
