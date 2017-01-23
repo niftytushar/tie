@@ -29,46 +29,18 @@ export default class History extends Component {
           <Text style={styles.subHeaderCategory}>History</Text>
         </View>
         <ScrollView style={styles.container}>
-          <View>
-            <Text style={[styles.h4, styles.historyText]}>
-              Feedback from Amelia
+          <Text style={[styles.historyText]}>Here's a summary of what happened in your team last week:</Text>
+          <Text style={[styles.historyText, styles.marginTop]}>Your team Happiness score is 85% 😄 (that's 18% more than the week before).</Text>
+          <View style={styles.marginTop}>
+            <Text style={styles.h4}>
+              <Text style={styles.bold}>Total Appreciations Given</Text> - 150
             </Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={styles.rating}>⭐⭐⭐⭐⭐</Text>
-              <Text style={styles.timestamp}>17th Jan, 2017</Text>
-            </View>
-            <View>
-              <Text style={styles.historyText}>"Excellent Presentation"</Text>
-              <Text style={styles.historyText}>Received Star Award and a £50 Boohoo gift card.</Text>
-            </View>
-          </View>
-
-          <View>
-            <Text style={[styles.h4, styles.historyText]}>
-              Feedback from Harry
+            <Text style={styles.h4}>
+              <Text style={styles.bold}>Past Week Active Users</Text> - 87
             </Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={styles.rating}>⭐⭐⭐</Text>
-              <Text style={styles.timestamp}>15th Jan, 2017</Text>
-            </View>
-            <View>
-              <Text style={styles.historyText}>"Great content!. But you can work on your speed."</Text>
-              <Text style={styles.historyText}>Received Star Award and a £25 Boohoo gift card.</Text>
-            </View>
-          </View>
-
-          <View>
-            <Text style={[styles.h4, styles.historyText]}>
-              Feedback from George
+            <Text style={styles.h4}>
+              <Text style={styles.bold}>Top 3 Receivers</Text> - Jack <Text style={styles.countBlockText}>22</Text>, Emily <Text style={styles.countBlockText}>14</Text>, Charlie <Text style={styles.countBlockText}>10</Text>
             </Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={styles.rating}>⭐⭐⭐⭐</Text>
-              <Text style={styles.timestamp}>14th Jan, 2017</Text>
-            </View>
-            <View>
-              <Text style={styles.historyText}>"Good work. Keep it up."</Text>
-              <Text style={styles.historyText}>Received Star Award.</Text>
-            </View>
           </View>
         </ScrollView>
       </View>
@@ -98,18 +70,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 5,
   },
-  rating: {
-    flex: 1,
-  },
-  h4: {
+  bold: {
     fontWeight: 'bold',
-    marginTop: 20,
-  },
-  timestamp: {
-    fontSize: 12,
-    fontStyle: 'italic',
   },
   historyText: {
-    fontSize: 18
+    fontSize: 18,
+  },
+  marginTop: {
+    marginTop: 20,
+  },
+  countBlockText: {
+    color: '#c96a6a',
+    fontSize: 12,
   },
 });
