@@ -46,19 +46,19 @@ export default class CategoryPage extends Component {
                     undefined
                 }
                 <Text style={styles.actionText}>Feedback</Text>
-                <Image source={feedback}/>
+                <Image source={feedback} />
               </View>
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}}>
               <View style={styles.actions}>
                 <Text style={styles.actionText}>Reward</Text>
-                <Image source={reward}/>
+                <Image source={reward} />
               </View>
           </TouchableOpacity>
           <TouchableOpacity style={{margin: 10}}>
               <View style={styles.actions}>
-                <Text style={styles.actionText}>Shop</Text>
-                <Image source={shop}/>
+                <Text style={styles.actionText}>Redeem</Text>
+                <Image source={shop} />
               </View>
           </TouchableOpacity>
         </View>

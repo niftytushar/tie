@@ -30,16 +30,16 @@ export default class History extends Component {
         </View>
         <ScrollView style={styles.container}>
           <Text style={[styles.historyText]}>Here's a summary of what happened in your team last week:</Text>
-          <Text style={[styles.historyText, styles.marginTop]}>Your team Happiness score is 85% 😄 (that's 18% more than the week before).</Text>
+          <Text style={[styles.historyText, styles.marginTop]}>Your team Happiness score is <Text style={styles.numberColor}>85%</Text> 😄 (that's <Text style={styles.numberColor}>18%</Text> more than the week before).</Text>
           <View style={styles.marginTop}>
-            <Text style={styles.h4}>
-              <Text style={styles.bold}>Total Appreciations Given</Text> - 150
+            <Text style={[styles.h4, styles.historyText]}>
+              Total Appreciations Given 👍 - <Text style={styles.numberColor}>150</Text>
             </Text>
-            <Text style={styles.h4}>
-              <Text style={styles.bold}>Past Week Active Users</Text> - 87
+            <Text style={[styles.h4, styles.historyText]}>
+              Past Week Active Users 👍 - <Text style={styles.numberColor}>87</Text>
             </Text>
-            <Text style={styles.h4}>
-              <Text style={styles.bold}>Top 3 Receivers</Text> - Jack <Text style={styles.countBlockText}>22</Text>, Emily <Text style={styles.countBlockText}>14</Text>, Charlie <Text style={styles.countBlockText}>10</Text>
+            <Text style={[styles.h4, styles.historyText]}>
+              Top <Text style={styles.numberColor}>3</Text> Receivers 👍 - Jack <Text style={styles.numberColor}>22</Text>, Emily <Text style={styles.numberColor}>14</Text>, Charlie <Text style={styles.numberColor}>10</Text>
             </Text>
           </View>
         </ScrollView>
@@ -79,8 +79,7 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 20,
   },
-  countBlockText: {
-    color: '#c96a6a',
-    fontSize: 12,
+  numberColor: {
+    color: 'orange',
   },
 });
