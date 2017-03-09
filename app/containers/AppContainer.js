@@ -23,52 +23,9 @@ class AppContainer extends Component {
 
   renderScene(route, navigator) {
     switch (route.id) {
-      case 'category':
-        return (
-          <CategoryPage
-            {...this.props}
-            onCategoryTap={() => {
-              navigator.push({ id: 'feedback' });
-            }}
-          />
-        );
-
-      case 'feedback':
-        return (
-          <Feedback
-            {...this.props}
-            onFeedbackActionTap={(feedbackOption) => {
-              navigator.push({ id: 'chat', feedbackOption: feedbackOption });
-            }}
-            onHistoryTap={() => {
-              navigator.push({ id: 'history' });
-            }}
-          />
-        );
-
-      case 'auth':
-        return (
-          <LoginPage
-            {...this.props}
-            onLoginSuccess={() => {
-              navigator.push({ id: 'category' });
-            }}
-          />
-        );
-
       case 'chat':
         return (
           <ChatContainer
-            initalMessage={route.feedbackOption}
-          />
-        );
-
-      case 'history':
-        return (
-          <History
-            onBackTap={() => {
-              navigator.pop();
-            }}
           />
         );
     }
@@ -78,7 +35,7 @@ class AppContainer extends Component {
     return (
       <Navigator
         style={styles.container}
-        initialRoute={{ id: 'auth' }}
+        initialRoute={{ id: 'chat' }}
         renderScene={this.renderScene}
       />
     )

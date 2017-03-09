@@ -18,7 +18,7 @@ import SuggestionItem from './SuggestionItem';
 
 import mic from './img/ic_mic.png';
 // import more from './img/ic_more_vert_white.png';
-import logo from './img/logo-full.png';
+// import logo from './img/logo-full.png';
 import volumeOff from './img/ic_volume_off.png';
 import volumeOn from './img/ic_volume_up.png';
 import feedbackIcon from './img/feedback.png';
@@ -128,18 +128,17 @@ export default class Chat extends Component {
     return (
       <View style={styles.container}>
         <ToolbarAndroid
-          logo={logo}
+          title="ChatBot"
+          titleColor="#ffffff"
           style={styles.toolbar}
           actions={toolbarActions}
           onActionSelected={this.onActionSelected}
         />
-        <View style={styles.subHeader}>
-          <Image source={feedbackIcon} />
-          <Text style={styles.subHeaderCategory}>{this.props.initalMessage}</Text>
-        </View>
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1, paddingTop: 10 }}>
-            <ScrollView ref="scrollView" onContentSizeChange={this.onScrollViewContentSizeChange}>
+            <ScrollView ref="scrollView"
+              onContentSizeChange={this.onScrollViewContentSizeChange}
+            >
               {
                 this.props.messages.map((message, index) => {
                   if (message.type === 'BOT') {
@@ -213,11 +212,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   toolbar: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#3d81a0',
     height: 56,
     elevation: 2,
     borderBottomWidth: 1,
-    borderColor: '#e9ecf1',
+    borderColor: '#3d81a0',
   },
   suggestionsContainer: {
     height: 40,
@@ -237,7 +236,7 @@ const styles = StyleSheet.create({
   sendingBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    padding: 5,
     backgroundColor: '#f8f8f8',
     height: 55,
     borderWidth: 1,
@@ -246,10 +245,12 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     color: '#333333',
-    fontSize: 16,
-    height: 35,
+    fontSize: 14,
+    height: 40,
     marginRight: 10,
     marginLeft: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
     backgroundColor: '#ffffff',
     borderWidth: 1,
     borderColor: '#e4e4e4',
