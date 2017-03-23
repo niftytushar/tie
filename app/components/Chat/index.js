@@ -38,9 +38,9 @@ export default class Chat extends Component {
     this.speakOutLastMessage = this.speakOutLastMessage.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getResponse(this.props.initalMessage);
-  }
+  // componentDidMount() {
+  //   this.props.getResponse(this.props.initalMessage);
+  // }
 
   componentDidUpdate(prevProps) {
     if (this.props.messages.length > prevProps.messages.length) {
