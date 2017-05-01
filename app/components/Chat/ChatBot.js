@@ -28,6 +28,11 @@ export default class ChatUser extends Component {
           <Image source={chat} style={styles.chatImage}/>
           <View style={styles.bubbleBot}>
             <Text style={styles.textBot}>{this.props.message}</Text>
+            {
+              this.props.image ?
+              (<Image source={{ uri: this.props.image }} style={{ width: 200, height: 200 }} />) :
+              undefined
+            }
           </View>
         </View>
       </View>

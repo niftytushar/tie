@@ -38,9 +38,9 @@ export default class Chat extends Component {
     this.speakOutLastMessage = this.speakOutLastMessage.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.getResponse(this.props.initalMessage);
-  // }
+  componentDidMount() {
+    this.props.getResponse('root');
+  }
 
   componentDidUpdate(prevProps) {
     if (this.props.messages.length > prevProps.messages.length) {
@@ -142,9 +142,21 @@ export default class Chat extends Component {
               {
                 this.props.messages.map((message, index) => {
                   if (message.type === 'BOT') {
-                    return (<ChatBot key={index} message={message.text} image={message.key === 'boohoo_gift_card'} />);
+                    return (
+                      <ChatBot
+                        key={index}
+                        message={message.text.text}
+                        image={message.text.image_url}
+                      />
+                    );
                   } else {
-                    return (<ChatUser key={index} message={message.text} user={this.props.auth.username} />);
+                    return (
+                      <ChatUser
+                        key={index}
+                        message={message.text}
+                        user={this.props.auth.username}
+                      />
+                    );
                   }
                 })
               }
